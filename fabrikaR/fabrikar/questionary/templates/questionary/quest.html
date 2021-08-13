@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ questionary.title }}{% endblock %}
+
+{% block nav %}{{ block.super }}{% endblock %}
+
+{% block content %}
+
+
+<h1 style="padding-left: 50px; padding-top: 50px">{{ questionary.title }} </h1>
+
+<form method="post">
+
+    {% csrf_token %}
+<!--    {% for form_item in ArticleFormSet %}-->
+<!--        {{ ArticleFormSet}}-->
+<!--    {% endfor %}-->
+
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-warning">Пройти опрос</button>
+
+</form>
+
+
+{% endblock %}
+
+<!--    <tr><th><label for="id_user">Gjkm</label></th><td>-->
+<!--        <input class="form-check-input" type="hidden" name="user" required id="id_user" value="1">-->
+
+<!--<tr><th><label for="id_questionary">{{ questionary.title}}</label></th><td>-->
+<!--    <input class="form-check-input" type="hidden" name="questionary" required id="id_questionary" value="{{ questionary.pk }}">-->
+
+<!--    <div style="display: grid; justify-items: center;">-->
+<!--        {% for item in questions %}-->
+<!--            <div style="display: grid; justify-items: center;">-->
+<!--                <h1 class="card-title">{{ item.quest_text }}</h1>-->
+<!--                <input class="form-check-input" type="hidden" name="question" required id="id_question" value="{{ item.pk }}">-->
+<!--                {% for a_item in answers %}-->
+<!--                    {% if a_item.question == item %}-->
+<!--                        {% if item.question_type.title == 'Ответ с одним вариантом' %}-->
+<!--                            {{ form.as_p }}-->
+<!--                            <div class="form-check">-->
+<!--&lt;!&ndash;                                <input class="form-check-input" type="radio" name="gridRadios" id="{{ a_item.id }}" value="{{ a_item.pk }}">&ndash;&gt;-->
+<!--                                <input class="form-check-input" type="radio" name="gridRadios" id="{{ a_item.pk }}" value="{{ a_item.pk }}" required>-->
+<!--                                <label class="form-check-label" for="gridRadios2">-->
+<!--                                    {{ a_item.answer_text }}-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                        {% endif %}-->
+
+<!--                        {% if item.question_type.title == 'Ответ текстом' %}-->
+<!--                            {{ form.as_p }}-->
+<!--                            <div class="form-floating" style="max-width: 700px">-->
+<!--                                <textarea class="form-control" placeholder="Ваш ответ:" id="floatingTextarea"></textarea>-->
+<!--                                <label for="floatingTextarea">Ваш ответ:</label>-->
+<!--                            </div>-->
+<!--                        {% endif %}-->
+
+<!--                        {% if item.question_type.title == 'Чек-бокс' %}-->
+
+<!--                            {{ form.as_p }}-->
+
+<!--                            <div class="input-group" style=" display: grid; justify-items: center; max-width: 300px">-->
+<!--                                <div style="display: flex; align-items: center;">-->
+<!--                                    <div class="form-check">-->
+<!--                                        <input class="form-check-input" type="checkbox" id="inlineFormCheck">-->
+<!--                                        <label class="form-check-label" for="inlineFormCheck">-->
+<!--                                           {{ a_item.answer_text }}-->
+<!--                                        </label>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        {% endif %}-->
+
+<!--                    {% endif %}-->
+<!--                {% endfor %}-->
+<!--            </div>-->
+<!--            <hr>-->
+<!--        {% endfor %}-->
+<!--        <div>-->
+
+<!--        </div>-->
+<!--    </div>-->
+
+
+
+<!--<tr><th><label for="id_user">user:</label></th><td><select name="user" required id="id_user">-->
+<!--  <option value="">-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</option>-->
+
+<!--  <option value="1" selected>admin</option>-->
+
+<!--</select></td></tr>-->
+<!--<tr><th><label for="id_questionary">user:</label></th><td><select name="questionary" required id="id_questionary">-->
+<!--  <option value="">-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</option>-->
+
+<!--  <option value="48" selected>Киноопрос</option>-->
+
+<!--</select></td></tr>-->
+<!--<tr><th><label for="id_question">user:</label></th><td><select name="question" required id="id_question">-->
+<!--  <option value="">-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</option>-->
+
+<!--  <option value="22" selected>Поговорим о том, о сём?</option>-->
+
+<!--</select></td></tr>-->
+<!--<tr><th><label>Answer:</label></th><td><ul class="errorlist"><li>Выберите корректный вариант. Вашего варианта нет среди допустимых значений.</li></ul><ul id-->
+<!--="id_answer">-->
+<!--    <li><label for="id_answer_0"><input type="checkbox" name="answer" value="" id="id_answer_0">-->
+<!-- -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</label>-->
+
+<!--</li>-->
+<!--    <li><label for="id_answer_1"><input type="checkbox" name="answer" value="22" id="id_answer_1">-->
+<!-- 1</label>-->
+
+<!--</li>-->
+<!--    <li><label for="id_answer_2"><input type="checkbox" name="answer" value="23" id="id_answer_2">-->
+<!-- 123</label>-->
+
+<!--</li>-->
+<!--    <li><label for="id_answer_3"><input type="checkbox" name="answer" value="24" id="id_answer_3">-->
+<!-- Дадада</label>-->
+
+<!--</li>-->
+<!--    <li><label for="id_answer_4"><input type="checkbox" name="answer" value="25" id="id_answer_4" checked>-->
+<!-- Криминальное чтиво</label>-->
+
+<!--</li>-->
+<!--    <li><label for="id_answer_5"><input type="checkbox" name="answer" value="26" id="id_answer_5">-->
+<!-- Пиратские фильмы</label>-->
+
+<!--</li>-->
+<!--    <li><label for="id_answer_6"><input type="checkbox" name="answer" value="27" id="id_answer_6">-->
+<!-- Гарри Поттер</label>-->
+
+<!--</li>-->
+<!--    <li><label for="id_answer_7"><input type="checkbox" name="answer" value="28" id="id_answer_7">-->
+<!-- Всегда говори &quot;Да&quot;</label>-->
+
+<!--</li>-->
+<!--</ul></td></tr>-->
